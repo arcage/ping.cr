@@ -18,8 +18,7 @@ module Ping
     client = Ping::Client.new(host)
     id = Process.pid.to_u16
     sequence = 0u16
-    statics =
-      rtt_list = [] of Float64
+    rtt_list = [] of Float64
     while sequence < count
       res = client.ping(id, sequence, data)
       puts res.message
