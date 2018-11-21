@@ -31,7 +31,7 @@ module Ping
     puts "\n--- #{host} ping statistics ---"
     puts "#{count} packets transmitted, #{received} packets received, #{"%.1d" % (100.0 - (received.to_f * 100 / count))}% packet loss"
     avg = rtt_list.reduce { |a, i| a + i } / received
-    stddev = Math.sqrt(rtt_list.map{ |rtt| rtt - avg }.reduce{ |a, i| a + (i ** 2) } / received)
+    stddev = Math.sqrt(rtt_list.map { |rtt| rtt - avg }.reduce { |a, i| a + (i ** 2) } / received)
     puts "round-trip min/avg/max/stddev = #{"%.3f" % rtt_list.min}/#{"%.3f" % avg}/#{"%.3f" % rtt_list.max}/#{"%.3f" % stddev} ms"
   end
 end
